@@ -1,11 +1,15 @@
 '''
 DataReader reads an ASCII File exported from a CDS/ISIS Database and 
 '''
+from regex import E, T
+
+
 class DataReader():
 
     def __init__(self, field_delimiter="|||", entry_delimiter="###"):
         self._field_delimiter = field_delimiter
         self._entry_delimiter = entry_delimiter
+
         
     def _read_lines(self, path: str) -> list: 
         lines = []
@@ -17,6 +21,9 @@ class DataReader():
 
         for i, e in enumerate(entries):
             entries[i] = e.split("|||")
+
+        for i, e in enumerate(entries):
+            entries[i] = [a.encode().decode('unicode_escape') for a in e]
         
         return [e for e in entries if len(e) > 2]
 

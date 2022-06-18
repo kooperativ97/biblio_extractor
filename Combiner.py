@@ -76,7 +76,7 @@ class Combiner():
 
     def save_json(self, path):
         with open(path, 'w') as fp:
-            json.dump(self.combine(), fp)
+            json.dump(self.combine(), fp, ensure_ascii=False)
 
 if __name__ == "__main__":
     combiner = Combiner("data/BIBLIO.FDT", "data/prints/export.txt")
