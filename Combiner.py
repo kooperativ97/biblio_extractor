@@ -12,7 +12,7 @@ class Combiner():
         self._columns = FDTReader().getDictionary(fdt_path)
         self._data = DataReader().getData(data_path) 
         
-    def _dictiofy(self) -> list[dict]:
+    def _dictiofy(self) -> list:
         entries = []
         for entry in self._data:
             entryd = dict()
@@ -65,8 +65,6 @@ class Combiner():
             new_key = self._columns[k.replace("v", "")]
             if v:
                 newd[new_key] = v
-            else: 
-                print(f"Discarded: {v}")
         return newd
 
 

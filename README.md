@@ -437,3 +437,6 @@ Select a file where the entries are printed to
 Exporting dialog, takes about 60 seonds to finish. 
 
 After the export has finished, there should be the file “fullexport.txt” on the configured location with all the entries exported.
+
+Put the export in the `data/prints` folder and name it `export.txt`
+Then run the Combiner.py file via `python Combiner.py` in the root folder of this project. 
