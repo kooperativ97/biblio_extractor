@@ -1,8 +1,6 @@
 '''
 DataReader reads an ASCII File exported from a CDS/ISIS Database and 
 '''
-from regex import E, T
-
 
 class DataReader():
 

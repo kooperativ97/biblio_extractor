@@ -5,6 +5,7 @@ from DataReader import DataReader
 from FDTReader import FDTReader
 import re 
 import json
+import argparse
 
 class Combiner():
 

@@ -52,6 +52,22 @@ class FDTReader():
             
             columns[field_number] = name
         return columns
-            
+    
+    def generatePFT(self, path, column_delimiter="|||", entry_delimiter="###") -> str: 
+        d = self.getDictionary(path)
+        pft = f''
+        for k in d.keys():
+            pft += f'"v{k}: "v{k}"{column_delimiter}",'
+
+        #remove last ","
+        if pft[-1] == ",":
+            pft = pft[0:len(pft)-1]
+
+        pft = pft[0] + entry_delimiter + pft[1:len(pft)]
+        
+        return pft
+        
+
 if __name__ == "__main__":
     print(FDTReader().getDictionary("data/BIBLIO.FDT", True))
+    print(FDTReader().generatePFT("data/BIBLIO.FDT"))
